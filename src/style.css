@@ -1,96 +1,138 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* ====== Reset & Basis ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #EAE8F4; /* Lichtpaars */
+  color: #1B1B1F;
+  line-height: 1.6;
+}
+
+/* ====== Header ====== */
+header {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between; /* Logo links, nav rechts */
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #EAE8F4;
+  position: relative;
+  z-index: 1000;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Logo styling */
+.logo img {
+  height: 60px;   /* pas dit aan naar wat mooi oogt */
+  width: auto;
+  display: block;
 }
 
-#app {
-  max-width: 1280px;
+/* === NAVIGATION === */
+header {
+  background: #FCFCFC; /* lichte achtergrond */
+  padding: 1rem 3rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* nav links modern look */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1B1B1F; /* donker grijs/zwart */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #6B2888; /* jouw paars */
+  transform: translateY(-2px);
+}
+
+/* primary button in nav */
+.nav-links .btn-primary {
+  background: #6B2888; /* jouw paars */
+  color: #fff !important;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-links .btn-primary:hover {
+  background: #582070; /* iets donkerder paars voor hover */
+  transform: translateY(-2px);
+}
+
+
+/* ====== Hero Section ====== */
+.hero {
   text-align: center;
+  padding: 120px 20px 100px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #6B2888;
+  margin-bottom: 20px;
 }
 
-.card {
-  padding: 2em;
+.hero p {
+  font-size: 1.2rem;
+  color: #1B1B1F;
+  margin-bottom: 40px;
 }
 
-.read-the-docs {
-  color: #888;
+.hero .btn {
+  display: inline-block;
+  background-color: #6B2888;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.hero .btn:hover {
+  background-color: #4a1761;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ====== Footer ====== */
+footer {
+  text-align: center;
+  padding: 25px;
+  background-color: #F6F5FA;
+  font-size: 0.9rem;
+  color: #6B2888;
 }
+ 
