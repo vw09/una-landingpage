@@ -8,52 +8,36 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #EAE8F4; /* Lichtpaars */
-  color: #1B1B1F;
+  color: #3D487B;
   line-height: 1.6;
 }
 
 /* ====== Header ====== */
 header {
-  display: flex;
-  justify-content: space-between; /* Logo links, nav rechts */
-  align-items: center;
-  padding: 20px 60px;
-  background-color: #EAE8F4;
-  position: relative;
-  z-index: 1000;
-}
-
-/* Logo styling */
-.logo img {
-  height: 60px;   /* pas dit aan naar wat mooi oogt */
-  width: auto;
-  display: block;
-}
-
-/* === NAVIGATION === */
-header {
-  background: #FCFCFC; /* lichte achtergrond */
+  background: #FCFCFC;
   padding: 1rem 3rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
-}
 
-.navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* 3 kolommen */
   align-items: center;
-  justify-content: space-between;
 }
 
 .logo img {
   height: 60px;
   width: auto;
+  display: block;
+  justify-self: start;
 }
 
-/* nav links modern look */
+/* Nav in het midden */
+.navbar {
+  justify-self: center;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -64,57 +48,79 @@ header {
 
 .nav-links li a {
   text-decoration: none;
-  font-weight: 600;
-  color: #1B1B1F; /* donker grijs/zwart */
+  font-weight: 500; /* minder bold */
+  color: #3D487B;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links li a:hover {
-  color: #6B2888; /* jouw paars */
+  color: #6B2888; /* accent paars */
   transform: translateY(-2px);
 }
 
-/* primary button in nav */
-.nav-links .btn-primary {
-  background: #6B2888; /* jouw paars */
-  color: #fff !important;
+/* CTA button rechts */
+.nav-cta {
+  justify-self: end;
+}
+
+.nav-cta a {
+  background: #6B2888;
+  color: #fff;
   padding: 0.6rem 1.4rem;
   border-radius: 30px;
-  font-weight: 600;
+  font-weight: 700; /* CTA blijft bold */
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.nav-links .btn-primary:hover {
-  background: #582070; /* iets donkerder paars voor hover */
+.nav-cta a:hover {
+  background: #582070;
   transform: translateY(-2px);
 }
 
-
+/* ====== Hero Section ====== */
 /* ====== Hero Section ====== */
 .hero {
-  text-align: center;
-  padding: 120px 20px 100px;
-  max-width: 900px;
+  padding: 100px 40px;
+  background: #EAE8F4; /* zelfde paars als body */
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.hero h1 {
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
   font-size: 3rem;
   font-weight: 800;
   color: #6B2888;
-  margin-bottom: 20px;
+  margin-bottom: 10px;   /* dichter tegen de paragraaf */
+  line-height: 1.2;
+  text-align: left;
+  letter-spacing: -0.5px;
 }
 
-.hero p {
+.hero-text p {
   font-size: 1.2rem;
-  color: #1B1B1F;
-  margin-bottom: 40px;
+  color: #3D487B;
+  margin-bottom: 30px;   /* ruimte tot de button */
+  margin-top: 0;         /* geen extra ruimte bovenaan */
+  text-align: left;
+  max-width: 500px;
 }
 
-.hero .btn {
+.hero-text .btn-primary {
   display: inline-block;
   background-color: #6B2888;
-  color: #ffffff;
+  color: #fff;
   padding: 14px 32px;
   border-radius: 999px;
   font-size: 1rem;
@@ -123,8 +129,81 @@ header {
   transition: background-color 0.3s ease;
 }
 
+.hero-text .btn-primary:hover {
+  background-color: #4a1761;
+}
+
+.hero-image img {
+  width: 250px;        /* vaste breedte (maak kleiner dan je huidige image) */
+  height: auto;        /* behoudt de verhoudingen */
+  border-radius: 20px; /* afgeronde hoeken */
+  display: block;
+  margin: 0 auto;      /* netjes gecentreerd in de kolom */
+}
+
+
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+
 .hero .btn:hover {
   background-color: #4a1761;
+}
+
+/* ====== Features Section ====== */
+#features {
+  text-align: center;
+  padding: 80px 20px;
+  background: #FCFCFC;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #3D487B;
+  font-weight: 700;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  background: #EAEBF4;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+  padding: 30px;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #6B2888; /* accent paars */
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
 }
 
 /* ====== Footer ====== */
@@ -135,4 +214,3 @@ footer {
   font-size: 0.9rem;
   color: #6B2888;
 }
- 
